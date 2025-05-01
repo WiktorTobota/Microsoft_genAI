@@ -1,0 +1,13 @@
+langchain>=0.1.0,<1.0
+langchain-google-genai
+langchain-chroma
+langchain-community
+chromadb
+sentence-transformers
+transformers
+torch
+pandas
+numpy
+scikit-learn
+biopython
+python-dotenv
