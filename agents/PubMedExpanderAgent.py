@@ -54,16 +54,17 @@ class PubMedExpanderAgent(PubMedSearchAgent):
         articles = self.search(analysis, max_results_per_query=max_per_query)
         queries  = self.generate_queries(analysis)
         rnd = 0
+    
         while len(articles) < minimum and rnd < max_rounds:
             needed = minimum - len(articles)
             print(f"\n⚠️ Only {len(articles)} articles; need {needed}. Expanding…")
             new_qs = self.expand_queries(analysis, queries, needed)
             print("🔄 Expanded queries:")
-            for q in new_qs: print(f"  - {q}")
+            #for q in new_qs: print(f"  - {q}")
             queries += new_qs
             for q in new_qs:
                 arts = search_pubmed(q, max_results=max_per_query)
-                print(f"    • '{q[:60]}...' → {len(arts)}")
+                #print(f"    • '{q[:60]}...' → {len(arts)}")
                 articles.extend(arts)
             #checking for duplicates
             seen, unique = set(), []

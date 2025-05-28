@@ -35,7 +35,7 @@ def search_pubmed(query: str, max_results: int = 5) -> List[Dict[str, Any]]:
 
     articles = []
     
-    print(records)
+    #print(records)
 
     # Check if 'PubmedArticleSet' is in the records
     # If not, return an empty list
@@ -63,4 +63,4 @@ Entrez.email = os.getenv('PubMed_email')
 Entrez.api_key = os.getenv('PubMed_API_KEY')
 
 articles = search_pubmed(example_query, max_results=5)
-print(articles)
+#print(articles)

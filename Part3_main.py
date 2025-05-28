@@ -1,6 +1,19 @@
 from pathlib import Path
 import os, json, datetime
 
+import builtins
+import traceback
+
+original_print = builtins.print  # zachowujemy oryginalną funkcję print
+
+def debug_print(*args, **kwargs):
+    stack = traceback.extract_stack()[-2]  # skąd zostało wywołane
+    original_print(f"\n[DEBUG: {stack.filename}:{stack.lineno}]", *args, **kwargs)
+
+builtins.print = debug_print
+
+
+
 def main():
     # Unified imports and config
     from dotenv import load_dotenv

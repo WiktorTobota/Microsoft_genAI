@@ -14,8 +14,6 @@ from langchain.chains import LLMChain
 
 load_dotenv()
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
-
-
 class OntologistAgent:
     def __init__(self,
                  model_name: str = 'gemini-1.5-flash',
@@ -64,7 +62,7 @@ if __name__ == "__main__":
         with open('Subgraphs - rheumatology/Autoimmunity.json', 'r', encoding='utf-8') as f:
             sample_subgraph = json.load(f)
         output = agent.run(sample_subgraph)
-        print(output)
+        #print(output)
     except FileNotFoundError:
         print("Error: Subgraphs - rheumatology/Autoimmunity.json not found.")
     except Exception as e:
